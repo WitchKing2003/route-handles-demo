@@ -1,3 +1,13 @@
-export async function GET() {
+import { NextRequest } from "next/server";
+import { headers } from "next/headers";
+
+export async function GET(request: NextRequest) {
+  // const requestHeaders = new Headers(request.headers);
+  // console.log(requestHeaders.get("Authorization"));
+
+  const headerList = await headers();
+
+  console.log(headerList);
+
   return new Response("Profle API data!");
 }
